@@ -33,7 +33,7 @@ class Node():
                     # insert each child at front of list
                     nodes_to_check.insert(0, child)
 
-    def is_child(self, data):
+    def is_descendant(self, data):
         nodes_to_check = self.children.copy()
 
         while nodes_to_check:
@@ -68,4 +68,4 @@ node1.add_child(node3)
 
 
 node1.print_descendants()
-node3.is_child(10)  # True
+node3.is_descendant(10)  # True
