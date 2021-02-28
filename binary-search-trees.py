@@ -24,15 +24,43 @@ class Bst_Node():
                 self.right.insert_node(value)
 
     # Print all nodes
-    def print_descendants(self):
-        # DFS
+    def print_descendants(self, call_count=0):
+        # DFS (Pre-order) //10 5 8 15
+        # if self.data != None:
+        #     print(self.data)
+        #     if self.left:
+        #         self.left.print_descendants()
+        #     if self.right:
+        #         self.right.print_descendants()
+        #     return
+
+        # # In-order // 5 8 10 15
+        # if self.data != None:
+        #     # check left because it's smaller
+        #     if self.left:
+        #         # before printing check if curr has a left
+        #         self.left.print_descendants()
+        #     # when it doesn't have a left then print curr value
+        #     print(self.data)
+        #     # check if there is a self right
+        #     if self.right:
+        #         # if yes -- call function on self right
+        #         self.right.print_descendants()
+
+        # BFS // 10 5 15 8
         if self.data != None:
-            print(self.data)
+            if call_count == 0:
+                print(self.data)
             if self.left:
-                self.left.print_descendants()
+                print(self.left.data)
             if self.right:
-                self.right.print_descendants()
-            return
+                print(self.right.data)
+            if self.left:
+                call_count += 1
+                self.left.print_descendants(call_count)
+            if self.right:
+                call_count += 1
+                self.right.print_descendants(call_count)
 
 
 class Bs_Tree():
