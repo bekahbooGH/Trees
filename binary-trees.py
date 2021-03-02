@@ -28,15 +28,15 @@ class Binary_Tree():
                 check_children(parent.left)
             check_children()
 
-    def print_children(self, current=None):
+    def print_descendants(self, current=None):
         if not current:
             current = self.root
         if current:
             print(current.data)
             if current.left:
-                self.print_children(current.left)
+                self.print_descendants(current.left)
             if current.right:
-                self.print_children(current.right)
+                self.print_descendants(current.right)
 
     # Replace a node
     def replace_node(self, node_to_replace, new_node):
@@ -53,3 +53,14 @@ class Binary_Tree():
                 nodes_to_visit.extend([current.left, current.right])
                 print(nodes_to_visit)
 
+node10 = Binary_Node(10)
+b_tree = Binary_Tree()
+b_tree.add_node(node10)
+# print(root)
+node5 = Binary_Node(5)
+b_tree.add_node(node5)
+node8 = Binary_Node(8)
+b_tree.add_node(node8)
+node15 = Binary_Node(15)
+b_tree.add_node(node15)
+b_tree.print_descendants()
