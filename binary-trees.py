@@ -7,6 +7,27 @@ class Binary_Node():
         self.left = left
         self.right = right
 
+    def descendants_preorder(self, node):
+        print(node.data)
+        if node.left:
+            descendants_preorder(node.left)
+        if node.right:
+            descendants_preorder(node.right)
+
+    def descendants_inorder(self, node):
+        if node.left:
+            descendants_inorder(node.left)
+        print(node.data)
+        if node.right:
+            descendants_inorder(node.right)
+    
+    def descendants_postorder(self, node):
+        if node.left:
+            descendants_postorder(node.left)
+        if node.right:
+            descendants_postorder(node.right)
+        print(node.data)
+
 class Binary_Tree():
 
     def __init__(self, root=None):
@@ -28,15 +49,17 @@ class Binary_Tree():
                 check_children(parent.left)
             check_children()
 
-    def print_descendants(self, current=None):
-        if not current:
-            current = self.root
-        if current:
-            print(current.data)
-            if current.left:
-                self.print_descendants(current.left)
-            if current.right:
-                self.print_descendants(current.right)
+    # def print_descendants(self, current=None):
+    #     if not current:
+    #         current = self.root
+    #     if current:
+    #         print(current.data)
+    #         if current.left:
+    #             self.print_descendants(current.left)
+    #         if current.right:
+    #             self.print_descendants(current.right)
+
+
 
     # Replace a node
     def replace_node(self, node_to_replace, new_node):
@@ -63,4 +86,4 @@ node8 = Binary_Node(8)
 b_tree.add_node(node8)
 node15 = Binary_Node(15)
 b_tree.add_node(node15)
-b_tree.print_descendants()
+# b_tree.print_descendants()
