@@ -28,6 +28,24 @@ class Binary_Node():
             descendants_postorder(node.right)
         print(node.data)
 
+    
+# OUTPUT: 7 1 34 2 0
+
+# STACK
+
+    def count_nodes(node):
+        count = 1  # Line 1
+        if node.left:  # Line 2
+            count += count_nodes(node.left)  # Line 3
+        if node.right:  # Line 4
+            count += count_nodes(node.right)  # Line 5
+        return count  # Line 6
+ 
+# STACK
+# A: count_nodes(node7) count=5 Line 5
+# Return 5
+
+
 class Binary_Tree():
 
     def __init__(self, root=None):
