@@ -7,50 +7,50 @@ class Binary_Node():
         self.left = left
         self.right = right
 
-    def descendants_preorder(self, node):
-        print(node.data)
-        if node.left:
-            descendants_preorder(node.left)
-        if node.right:
-            descendants_preorder(node.right)
+    def descendants_preorder(self):
+        print(self.data)
+        if self.left:
+            self.left.descendants_preorder()
+        if self.right:
+            self.right.descendants_preorder()
 
-    def descendants_inorder(self, node):
-        if node.left:
-            descendants_inorder(node.left)
-        print(node.data)
-        if node.right:
-            descendants_inorder(node.right)
+    # def descendants_inorder(self, node):
+    #     if node.left:
+    #         descendants_inorder(node.left)
+    #     print(node.data)
+    #     if node.right:
+    #         descendants_inorder(node.right)
     
-    def descendants_postorder(self, node):
-        if node.left:
-            descendants_postorder(node.left)
-        if node.right:
-            descendants_postorder(node.right)
-        print(node.data)
+    # def descendants_postorder(self, node):
+    #     if node.left:
+    #         descendants_postorder(node.left)
+    #     if node.right:
+    #         descendants_postorder(node.right)
+    #     print(node.data)
 
     
 # OUTPUT: 7 1 34 2 0
 
 # STACK
 
-    def count_nodes(node):
-        count = 1  # Line 1
-        if node.left:  # Line 2
-            count += count_nodes(node.left)  # Line 3
-        if node.right:  # Line 4
-            count += count_nodes(node.right)  # Line 5
-        return count  # Line 6
+    # def count_nodes(node):
+    #     count = 1  # Line 1
+    #     if node.left:  # Line 2
+    #         count += count_nodes(node.left)  # Line 3
+    #     if node.right:  # Line 4
+    #         count += count_nodes(node.right)  # Line 5
+    #     return count  # Line 6
  
 # STACK
 # A: count_nodes(node7) count=5 Line 5
 # Return 5
 
-def preorderTraversal(self, root: TreeNode) -> List[int]:
-    # return the preorder traversal of its nodes' values.
-        if not root:
-            return []
-        if root:
-            return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
+# def preorderTraversal(self, root: TreeNode) -> List[int]:
+#     # return the preorder traversal of its nodes' values.
+#         if not root:
+#             return []
+#         if root:
+#             return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
 
 class Binary_Tree():
 
@@ -83,7 +83,12 @@ class Binary_Tree():
     #         if current.right:
     #             self.print_descendants(current.right)
 
-
+    # def descendants_preorder(self, node):
+    #     print(node.data)
+    #     if node.left:
+    #         self.descendants_preorder(node.left)
+    #     if node.right:
+    #         self.descendants_preorder(node.right)
 
     # Replace a node
     def replace_node(self, node_to_replace, new_node):
@@ -111,3 +116,7 @@ b_tree.add_node(node8)
 node15 = Binary_Node(15)
 b_tree.add_node(node15)
 # b_tree.print_descendants()
+# b_tree.descendants_preorder(node10)
+# b_tree.descendants_inorder(node10)
+# b_tree.descendants_postorder(node10)
+node10.descendants_preorder()
