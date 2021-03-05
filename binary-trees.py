@@ -45,6 +45,12 @@ class Binary_Node():
 # A: count_nodes(node7) count=5 Line 5
 # Return 5
 
+def preorderTraversal(self, root: TreeNode) -> List[int]:
+    # return the preorder traversal of its nodes' values.
+        if not root:
+            return []
+        if root:
+            return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
 
 class Binary_Tree():
 
