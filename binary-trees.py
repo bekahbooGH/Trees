@@ -41,6 +41,35 @@ class Binary_Node():
             count += self.right.count_nodes()  # Line 5
         return count  # Line 6
 
+    def height(self):
+        if not self:
+            return 0
+        if self.left:
+            lheight = self.left.height()
+        if self.right:
+            rheight = self.left.height()
+
+        if lheight > rheight:
+            return lheight+1
+        else:
+            return rheight+1
+
+    def printGivenLevel(self, level):
+        if not self:
+            return
+        elif level == 1:
+            print(self.data, end=" ")
+        elif level > 1:
+            self.left.printGivenLevel(level - 1)
+            self.right.printGivenLevel(level - 1)
+
+    def level_order_traversal(self):
+        h = self.height
+        for i in range(h):
+            self.printGivenLevel(i)
+
+
+
 
 class Binary_Tree():
 
@@ -135,3 +164,5 @@ node10.descendants_postorder()
 # A: count_nodes(node7) count=5 Line 5
 # Return 5
 print(node5.count_nodes())
+print()
+node10.height()
